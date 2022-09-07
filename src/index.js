@@ -4,7 +4,7 @@ import Layout from "./Layout";
 import Home from "./Home";
 import AboutMe from "./aboutMe";
 import Contact from "./Contact";
-import NoPage from "./noPage";
+import NoPage from "./NoPage";
 import MyClock from "./clock";
 
 

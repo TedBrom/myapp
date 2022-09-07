@@ -5,7 +5,8 @@ import 'react-clock/dist/Clock.css';
 function MyClock() {
   const [value, setValue] = useState(new Date());
 
-  useEffect(() => {
+  useEffect(() => 
+  {
     const interval = setInterval(() => setValue(new Date()), 1000);
 
     return () => {

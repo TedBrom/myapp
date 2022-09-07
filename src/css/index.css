@@ -24,3 +24,15 @@ h2{
   monospace;
   text-align:center;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 15px;
+}
+
+tr:nth-child(odd) {background-color: #f2f2f2;}

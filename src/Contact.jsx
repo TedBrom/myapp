@@ -24,18 +24,52 @@ function getAllFilms() {
   }
 
 
+  function showFilmsNicely()
+  {
+    let filmDiv = document.getElementById('filmTable')
+
+    fetch('http://localhost:8080/Home/allFilms', { method: 'GET' })
+    .then(res => res.json())
+    .then(films => 
+        {
+            films.forEach((film, index )=>
+                {if(index <=49 ){
+                    filmDiv.innerHTML += `
+                                            <tr>    
+                                                <td>${film.filmID}</td>
+                                                <td>${film.title}</td>
+                                                <td>${film.description}</td>
+                                            </tr>
+                                            `
+                                           
+                }
+                } ); 
+        })
+  }
 
 function Contact() {
     return (
         <div>
-            <h1>this is the contacts page</h1>
-             <div className="button">
-                    <button onClick={getAllFilms}>Browse the catalogue</button>
-                    <button onClick={getAFilm}>Select a film</button>
-                    <button onClick={getFilmTitle}>Title</button>
-            </div>
+            <h1>Here's all the films at Film McFilmface</h1>
+            <div className="button">
+                <button onClick={getAllFilms}>Browse the catalogue</button>
+                <button onClick={getAFilm}>Select a film</button>
+                <button onClick={getFilmTitle}>Title</button>
+                <button onClick={showFilmsNicely}>Jeff</button>
+            </div>  
             
-        </div>  
+            <div id ='filmDiv'>
+            <table id = 'filmTable'>
+               <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+               </tr>
+            </table>
+
+            </div>
+        </div>
+       
     );
     
 }
