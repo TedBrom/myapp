@@ -1,10 +1,11 @@
 import React from 'react';
-
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 
 function Contact() 
 {
-
+/*
     function getAllFilms() 
     {
 
@@ -26,9 +27,7 @@ function Contact()
         .then(response => response.json())
         .then(data => alert(data.title) ) // Displays the firstName from the API response
     }
-     
-     
-    function showFilmsNicely()
+     function showFilmsNicely()
     {
          let filmDiv = document.getElementById('filmTable')
      
@@ -50,26 +49,39 @@ function Contact()
                      } ); 
              })
     }
+ */    
+
+    const [films, setFilms] = useState();
+
+    const getFilmsNicer = async () => {
+        const response = await fetch(
+            `http://localhost:8080/Home/allFilms`
+        ).then((response ) => response.json());
+        setFilms(response);
+    };
+
+    useEffect(() => {
+        getFilmsNicer();
+    }, []);
+    
     return (
         <div>
             <h1>Here's all the films at Film McFilmface</h1>
-            <div className="button">
-                <button onClick={getAllFilms}>Browse the catalogue</button>
-                <button onClick={getAFilm}>Select a film</button>
-                <button onClick={getFilmTitle}>Title</button>
-                <button onClick={showFilmsNicely}>Jeff</button>
-            </div>  
             
-            <div id ='filmDiv'>
-            <table id = 'filmTable'>
-               <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Description</th>
-               </tr>
-            </table>
-
-            </div>
+            {films &&
+                films.map((film) => 
+                ( <div> 
+                    <div className="item-container">                 
+                        <tr>    
+                        <td>{film.filmID}</td>
+                        <td>{film.title}</td>
+                        <td>{film.description}</td>
+                        </tr>
+                    </div>  
+                  </div>   
+                ))
+            }
+            
         </div>
        
     );
