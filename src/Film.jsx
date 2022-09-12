@@ -22,7 +22,14 @@ function Film()
     return (
         <div>
             <h1>Here's all the films at Film McFilmface</h1>
-            <table>     
+            <table>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th> 
+                <th>Year of Release</th>
+                <th>Cost Per Week</th>
+                <th>Film Duration</th>
+                <th>Film Rating</th> 
             {films &&
                 films.map((film) => 
                 (          
@@ -30,6 +37,10 @@ function Film()
                     <td>{film.filmID}</td>
                     <td>{film.title}</td>
                     <td>{film.description}</td>
+                    <td>{film.year}</td>
+                    <td>{film.rentRate}</td>
+                    <td>{film.length}</td>
+                    <td>{film.rating}</td>
                 </tr>
                 ))
             }
