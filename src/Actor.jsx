@@ -11,7 +11,7 @@ function Actor() {
 
     const getActorsNicely = async () => {
         const response = await fetch(
-            `http://localhost:8080/Home/allActors`
+            `https://sakilaapp-1663062362455.azurewebsites.net/Home/allActors`
         ).then((response ) => response.json());
         setActors(response);
     };
@@ -23,7 +23,7 @@ function Actor() {
         let id = Math.floor(Math.random() * (200 - 1 + 1) + 1)
 
         const resp = await fetch(
-            `http://localhost:8080/Home/anActor/${id}`
+            `https://sakilaapp-1663062362455.azurewebsites.net/Home/anActor/${id}`
         ).then((resp) => resp.json());
             setActor(resp);
             console.log(resp);

@@ -12,7 +12,7 @@ function Home() {
         let id = Math.floor(Math.random() * (1000 - 1 + 1) + 1)
 
         const response = await fetch(
-            `http://localhost:8080/Home/aFilm/${id}`
+            `https://sakilaapp-1663062362455.azurewebsites.net/Home/aFilm/${id}`
         ).then((response) => response.json());
             setFilms(response);
             

@@ -10,7 +10,7 @@ function Film()
 
     const getFilmsNicer = async () => {
         const response = await fetch(
-            `http://localhost:8080/Home/allFilms`
+            `https://sakilaapp-1663062362455.azurewebsites.net/Home/allFilms`
         ).then((response ) => response.json());
         setFilms(response);
     };
