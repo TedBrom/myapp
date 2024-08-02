@@ -6,8 +6,8 @@ import Actor from "./Actor";
 import Film from "./Film";
 import NoPage from "./NoPage";
 import MyClock from "./clock";
-
-
+import "bootstrap/dist/css/bootstrap.css";
+import './css/index.css';
 export default function App() {
   return (
    

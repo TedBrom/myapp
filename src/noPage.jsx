@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 function NoPage() 
 {
-    function getCat()
+    function getGifCat()
     {
         let catButton = document.getElementById('give-cat')
 
@@ -13,7 +13,7 @@ function NoPage()
 
                 let catDiv = document.getElementById('cat-pic')
 
-                fetch('https://api.thecatapi.com/v1/images/search?')
+                fetch('https://api.thecatapi.com/v1/images/search?mime_types=gif')
                 .then(res => res.json())
                 .then(cats => 
                 {
@@ -25,6 +25,28 @@ function NoPage()
                 })
             })
     }
+    function getCat()
+    {
+        let catButton = document.getElementById('give-cat2')
+
+            catButton.addEventListener("click", evt => 
+            {
+
+                let catDiv = document.getElementById('cat-pic2')
+
+                fetch('https://api.thecatapi.com/v1/images/search?mime_types=jpg,png')
+                .then(res => res.json())
+                .then(cats => 
+                {
+                    cats.forEach(cat => 
+                    {
+                        catDiv.innerHTML = `<h3> cat go neooowm</h3> 
+                        <img src="${cat.url}" alt="kitty"/>`
+                    });
+                })
+            })
+    }
+
     function getKanye()
     {
         let quotesDiv = document.getElementById('quotes')
@@ -37,6 +59,7 @@ function NoPage()
 
     useEffect(() => {
         getKanye();
+        getGifCat();
         getCat();
     })
 
@@ -45,10 +68,12 @@ function NoPage()
         <h1>this is the page you end up at when something goes wrong!</h1>
         <div id ="quotes">
     </div>
-    <button id="give-cat">pls give cat </button>
-
-    <div id ="cat-pic">
-    </div>
+        <button id="give-cat">pls gif cat </button>
+        <button id="give-cat2">pls give cat </button>
+        <div id ="cat-pic">
+        <div id ="cat-pic2">
+        </div>
+        </div>
     </div>
        
     );

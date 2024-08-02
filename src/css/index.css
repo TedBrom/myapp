@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  background-color: rgb(204, 172, 67);
   
 }
 
@@ -35,4 +35,4 @@ th, td {
   padding: 15px;
 }
 
-tr:nth-child(odd) {background-color: #f2f2f2;}
+tr:nth-child(odd) {background-color: #ffffff;}

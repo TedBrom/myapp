@@ -26,7 +26,6 @@ function Actor() {
             `https://sakilaapp-1663062362455.azurewebsites.net/Home/anActor/${id}`
         ).then((resp) => resp.json());
             setActor(resp);
-            console.log(resp);
     };
 
 
@@ -60,12 +59,12 @@ function Actor() {
                     actors.map((actor) =>
                       (
                         <tr>
-                            <td><a href="https://www.imdb.com/?ref_=nv_home">{actor.actorId}</a></td>
+                            <td>{actor.actorId}</td>
                             <td>{actor.firstName}</td>
                             <td>{actor.lastName}</td>
                             <td><select>
-                                    <option value="jeff">Jeff</option>
-                                    <option value="Memes">Memes</option>
+                                    <option value="filName">Film</option>
+                                    <option value="anotherFilmName">Another film</option>
                                 </select>
                             </td>
                         </tr>
